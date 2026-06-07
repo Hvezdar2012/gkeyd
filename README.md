@@ -44,7 +44,7 @@ The script can also try to install missing dependencies automatically on Arch/Ca
 
 Clone the repository:
 ```
-git clone https://github.com/Hvezdar2012/g815-linux-gkeyd.git
+git clone https://github.com/Hvezdar2012/gkeyd.git
 cd g815-linux-gkeyd
 ```
 Install the script:
