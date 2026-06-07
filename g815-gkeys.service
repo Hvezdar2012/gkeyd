@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/g815-gkeys.py
+ExecStart=/usr/local/bin/g815-gkeyd.py
 Restart=always
 RestartSec=2
 
