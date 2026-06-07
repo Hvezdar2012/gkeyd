@@ -39,29 +39,29 @@ Required packages:
 sudo pacman -S solaar python-evdev
 
 The script can also try to install missing dependencies automatically on Arch/CachyOS using pacman.
-
+```
 Installation
-
+```
 Clone the repository:
 
 git clone https://github.com/YOUR_USERNAME/g815-linux-gkeys.git
 cd g815-linux-gkeys
-
+```
 Install the script:
-
+```
 sudo cp g815-gkeys.py /usr/local/bin/g815-gkeys.py
 sudo chmod +x /usr/local/bin/g815-gkeys.py
-
+```
 Test manually:
-
+```
 sudo /usr/local/bin/g815-gkeys.py
 
 In another terminal you can verify the virtual keyboard:
 
 sudo evtest
-
+```
 Select:
-
+```
 G815 G-Keys Virtual Keyboard
 
 Press G1-G5 and you should see F14-F18 events.
