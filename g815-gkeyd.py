@@ -126,7 +126,7 @@ def configure_keyboard():
 
     # Enable G-key divert mode.
     subprocess.run(
-        ["solaar", "config", DEVICE_NAME, "divert-gkeyd", "true"],
+        ["solaar", "config", DEVICE_NAME, "divert-gkeys", "true"],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
         check=False,
