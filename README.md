@@ -40,9 +40,10 @@ sudo pacman -S solaar python-evdev
 
 The script can also try to install missing dependencies automatically on Arch/CachyOS using pacman.
 ```
-Installation:
-```
+# Installation:
+
 Clone the repository:
+```
 
 git clone https://github.com/Hvezdar2012/g815-linux-gkeys.git
 cd g815-linux-gkeys
