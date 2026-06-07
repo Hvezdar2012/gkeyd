@@ -44,17 +44,17 @@ The script can also try to install missing dependencies automatically on Arch/Ca
 
 Clone the repository:
 ```
-git clone https://github.com/Hvezdar2012/g815-linux-gkeys.git
-cd g815-linux-gkeys
+git clone https://github.com/Hvezdar2012/g815-linux-gkeyd.git
+cd g815-linux-gkeyd
 ```
 Install the script:
 ```
-sudo cp g815-gkeys.py /usr/local/bin/g815-gkeys.py
-sudo chmod +x /usr/local/bin/g815-gkeys.py
+sudo cp g815-gkeyd.py /usr/local/bin/g815-gkeyd.py
+sudo chmod +x /usr/local/bin/g815-gkeyd.py
 ```
 Test manually:
 ```
-sudo /usr/local/bin/g815-gkeys.py
+sudo /usr/local/bin/g815-gkeyd.py
 ```
 In another terminal you can verify the virtual keyboard:
 ```
@@ -70,34 +70,34 @@ Press G1-G5 and you should see F14-F18 events.
 
 Copy the service file:
 ```
-sudo cp g815-gkeys.service /etc/systemd/system/g815-gkeys.service
+sudo cp g815-gkeyd.service /etc/systemd/system/g815-gkeyd.service
 ```
 Enable and start:
 ```
 sudo systemctl daemon-reload
-sudo systemctl enable --now g815-gkeys.service
+sudo systemctl enable --now g815-gkeyd.service
 ```
 Check status:
 ```
-systemctl status g815-gkeys.service
+systemctl status g815-gkeyd.service
 ```
 View logs:
 ```
-journalctl -u g815-gkeys.service -f
+journalctl -u g815-gkeyd.service -f
 ```
 Restart:
 ```
-sudo systemctl restart g815-gkeys.service
+sudo systemctl restart g815-gkeyd.service
 ```
 Disable:
 ```
-sudo systemctl disable --now g815-gkeys.service
+sudo systemctl disable --now g815-gkeyd.service
 ```
 # If you want to change G1-G5 keys to any another:
 
 Open:
 ```
-sudo nano /usr/local/bin/g815-gkeys.py
+sudo nano /usr/local/bin/g815-gkeyd.py
 
 Find:
 
@@ -121,7 +121,7 @@ or:
 ```
 After changes, restart the service:
 ```
-sudo systemctl restart g815-gkeys.service
+sudo systemctl restart g815-gkeyd.service
 ```
 # RGB lighting:
 
@@ -171,7 +171,7 @@ This project was created experimentally with the help of ChatGPT.
 The goal was to make Logitech G815 G-keys usable on Linux without Logitech G Hub.
 
 ```
-## `g815-gkeys.service`
+## `g815-gkeyd.service`
 ```
 [Unit]
 Description=Logitech G815 Linux G-Key Daemon
@@ -179,7 +179,7 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/g815-gkeys.py
+ExecStart=/usr/local/bin/g815-gkeyd.py
 Restart=always
 RestartSec=2
 
