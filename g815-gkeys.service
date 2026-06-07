@@ -1,0 +1,12 @@
+[Unit]
+Description=Logitech G815 Linux G-Key Daemon
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/g815-gkeys.py
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
