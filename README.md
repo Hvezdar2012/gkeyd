@@ -40,11 +40,11 @@ sudo pacman -S solaar python-evdev
 
 The script can also try to install missing dependencies automatically on Arch/CachyOS using pacman.
 ```
-Installation
+Installation:
 ```
 Clone the repository:
 
-git clone https://github.com/YOUR_USERNAME/g815-linux-gkeys.git
+git clone https://github.com/Hvezdar2012/g815-linux-gkeys.git
 cd g815-linux-gkeys
 ```
 Install the script:
@@ -71,31 +71,31 @@ Install as systemd service
 Copy the service file:
 
 sudo cp g815-gkeys.service /etc/systemd/system/g815-gkeys.service
-
+```
 Enable and start:
-
+```
 sudo systemctl daemon-reload
 sudo systemctl enable --now g815-gkeys.service
-
+```
 Check status:
-
+```
 systemctl status g815-gkeys.service
-
+```
 View logs:
-
+```
 journalctl -u g815-gkeys.service -f
-
+```
 Restart:
-
+```
 sudo systemctl restart g815-gkeys.service
-
+```
 Disable:
-
+```
 sudo systemctl disable --now g815-gkeys.service
 Changing key mapping
-
+```
 Open:
-
+```
 sudo nano /usr/local/bin/g815-gkeys.py
 
 Find:
@@ -109,9 +109,9 @@ MAP_VALUES = {
 }
 
 Change the output keys as needed.
-
+```
 Examples:
-
+```
 0x01: "KEY_A"
 
 or:
@@ -148,29 +148,28 @@ G3	0x04
 G4	0x08
 G5	0x10
 Release	0x00
-
+```
 Observed packet pattern:
-
+```
 11 ff 0a 00 XX 00 00 00 ...
 
 The Python daemon reads these packets from /dev/hidraw* and creates a virtual keyboard using evdev/uinput.
-
+```
 License
-
+```
 This project is released into the public domain.
 
 You may use, copy, modify, publish, distribute, sell, or do anything else with this code without asking for permission.
-
+```
 Credits
-
+```
 This project was created experimentally with the help of ChatGPT.
 
 The goal was to make Logitech G815 G-keys usable on Linux without Logitech G Hub.
 
-
+```
 ## `g815-gkeys.service`
-
-```ini
+```
 [Unit]
 Description=Logitech G815 Linux G-Key Daemon
 After=multi-user.target
