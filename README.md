@@ -31,7 +31,7 @@ It may work on other Linux distributions and Logitech G-series keyboards, but th
 
 ---
 
-## Requirements
+# Requirements:
 
 Required packages:
 
@@ -44,7 +44,6 @@ The script can also try to install missing dependencies automatically on Arch/Ca
 
 Clone the repository:
 ```
-
 git clone https://github.com/Hvezdar2012/g815-linux-gkeys.git
 cd g815-linux-gkeys
 ```
@@ -56,9 +55,9 @@ sudo chmod +x /usr/local/bin/g815-gkeys.py
 Test manually:
 ```
 sudo /usr/local/bin/g815-gkeys.py
-
+```
 In another terminal you can verify the virtual keyboard:
-
+```
 sudo evtest
 ```
 Select:
@@ -66,11 +65,11 @@ Select:
 G815 G-Keys Virtual Keyboard
 
 Press G1-G5 and you should see F14-F18 events.
-
-Install as systemd service
+```
+# Install as systemd service:
 
 Copy the service file:
-
+```
 sudo cp g815-gkeys.service /etc/systemd/system/g815-gkeys.service
 ```
 Enable and start:
@@ -93,8 +92,9 @@ sudo systemctl restart g815-gkeys.service
 Disable:
 ```
 sudo systemctl disable --now g815-gkeys.service
-Changing key mapping
 ```
+# If you want to change G1-G5 keys to any another:
+
 Open:
 ```
 sudo nano /usr/local/bin/g815-gkeys.py
@@ -118,29 +118,31 @@ Examples:
 or:
 
 0x01: "KEY_F19"
-
+```
 After changes, restart the service:
-
+```
 sudo systemctl restart g815-gkeys.service
-RGB lighting
+```
+# RGB lighting:
 
 This project does not control RGB lighting.
 
 For RGB, OpenRGB is recommended:
-
+```
 sudo pacman -S openrgb
 sudo openrgb
+```
 How it works
 
 The Logitech G815 exposes a HID++ feature called GKEY.
 
-Solaar can enable:
+### Solaar can enable:
 
 Divert G and M Keys
 
 When enabled, G1-G5 stop behaving like normal F1-F5 keys and instead emit raw HID++ notifications.
 
-Observed G-Key values:
+### Observed G-Key values:
 
 Key	Raw value
 G1	0x01
@@ -149,7 +151,7 @@ G3	0x04
 G4	0x08
 G5	0x10
 Release	0x00
-```
+
 Observed packet pattern:
 ```
 11 ff 0a 00 XX 00 00 00 ...
