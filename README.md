@@ -68,6 +68,7 @@ sudo /usr/local/bin/g815-gkeyd.py
 In another terminal, verify the virtual keyboard:
 
 ```bash
+sudo pacman -S evtest
 sudo evtest
 ```
 
